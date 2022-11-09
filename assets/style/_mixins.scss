@@ -1,0 +1,35 @@
+$media: (
+  fullhd: '(max-width: #{map-get($breakpoints, fullhd)})',
+  pc: '(max-width: #{map-get($breakpoints, pc)})',
+  xlpad: '(max-width: #{map-get($breakpoints, xlpad)})',
+  pad: '(max-width: #{map-get($breakpoints, pad)})',
+  mobile: '(max-width: #{map-get($breakpoints, mobile)})'
+);
+
+@mixin breakpoint($point) {
+  @if $point == fullhd {
+    @media only screen and #{map-get($media, fullhd)} {
+      @content;
+    }
+  } @else if $point == pc {
+    @media only screen and #{map-get($media, pc)} {
+      @content;
+    }
+  } @else if $point == xlpad {
+    @media only screen and #{map-get($media, xlpad)} {
+      @content;
+    }
+  } @else if $point == pad {
+    @media only screen and #{map-get($media, pad)} {
+      @content;
+    }
+  } @else if $point == mobile {
+    @media only screen and #{map-get($media, mobile)} {
+      @content;
+    }
+  } @else {
+    @media only screen and (max-width: #{$point}) {
+      @content;
+    }
+  }
+}
